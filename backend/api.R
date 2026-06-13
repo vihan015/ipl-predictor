@@ -1,22 +1,14 @@
 library(plumber)
 
+source("feature_generator.R")
+source("predict_function.R")
+
 #* @filter cors
-function(req, res){
+cors <- function(req, res){
 
-  res$setHeader(
-    "Access-Control-Allow-Origin",
-    "*"
-  )
-
-  res$setHeader(
-    "Access-Control-Allow-Headers",
-    "*"
-  )
-
-  res$setHeader(
-    "Access-Control-Allow-Methods",
-    "POST, GET, OPTIONS"
-  )
+  res$setHeader("Access-Control-Allow-Origin", "*")
+  res$setHeader("Access-Control-Allow-Headers", "*")
+  res$setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
 
   if(req$REQUEST_METHOD == "OPTIONS"){
     res$status <- 200
@@ -26,12 +18,9 @@ function(req, res){
   plumber::forward()
 }
 
-source("feature_generator.R")
-source("predict_function.R")
-
 #* Predict IPL match
 #* @post /predict
-function(
+predict_endpoint <- function(
   team1,
   team2,
   venue,
