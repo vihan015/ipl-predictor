@@ -5,9 +5,11 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libxml2-dev
 
-RUN R -e "install.packages(c('plumber','ranger','dplyr'), repos='https://cloud.r-project.org')"
-
 WORKDIR /app
+
+COPY install_packages.R .
+
+RUN Rscript install_packages.R
 
 COPY . .
 

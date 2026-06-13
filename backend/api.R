@@ -1,6 +1,5 @@
 library(plumber)
 
-#* @filter cors
 function(req, res){
 
   res$setHeader(
@@ -28,7 +27,6 @@ function(req, res){
 source("feature_generator.R")
 source("predict_function.R")
 
-#* @post /predict
 function(
   team1,
   team2,
