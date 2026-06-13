@@ -53,7 +53,7 @@ function App() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:8000/predict",
+        "https://ipl-predictor-e8lb.onrender.com/predict",
         {
           team1,
           team2,
