@@ -1,3 +1,5 @@
+library(ranger)
+
 predict_match <- function(
   team1,
   team2,
