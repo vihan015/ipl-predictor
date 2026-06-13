@@ -1,8 +1,12 @@
 install.packages(
   c(
-    "plumber",
+    "jsonlite",
+    "magrittr",
+    "dplyr",
     "ranger",
-    "dplyr"
+    "httpuv",
+    "sodium",
+    "plumber"
   ),
   repos = "https://cloud.r-project.org"
 )
