@@ -1,5 +1,6 @@
 library(plumber)
 
+#* @filter cors
 function(req, res){
 
   res$setHeader(
@@ -18,6 +19,7 @@ function(req, res){
   )
 
   if(req$REQUEST_METHOD == "OPTIONS"){
+    res$status <- 200
     return(list())
   }
 
@@ -27,6 +29,8 @@ function(req, res){
 source("feature_generator.R")
 source("predict_function.R")
 
+#* Predict IPL match
+#* @post /predict
 function(
   team1,
   team2,
