@@ -8,8 +8,6 @@ function App() {
     { id: 1, name: "Royal Challengers Bangalore" },
     { id: 2, name: "Sunrisers Hyderabad" },
     { id: 3, name: "Mumbai Indians" },
-    { id: 4, name: "Rising Pune Supergiant" },
-    { id: 5, name: "Gujarat Lions" },
     { id: 6, name: "Kolkata Knight Riders" },
     { id: 129, name: "Chennai Super Kings" },
     { id: 134, name: "Rajasthan Royals" },
@@ -83,7 +81,7 @@ function App() {
 
       <div className="card">
 
-        <h1>🏏 IPL Match Predictor</h1>
+        <h1>IPL Match Predictor</h1>
         <p className="subtitle">
           Random Forest + Genetic Algorithm
         </p>
@@ -168,6 +166,7 @@ function App() {
         <button
           className="predict-btn"
           onClick={predict}
+          disabled={loading || team1 === team2}
         >
           {loading ? "Predicting..." : "Predict Match"}
         </button>
@@ -175,7 +174,16 @@ function App() {
         {result && (
           <div className="result-card">
 
-            <h2>{result.prediction}</h2>
+            <h2>Prediction Result</h2>
+            <p
+              style={{
+                textAlign: "center",
+                marginBottom: "24px",
+                color: "#444"
+              }}
+            >
+              {result.prediction}
+            </p>
 
             <div className="probability">
 
